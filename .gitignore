@@ -30,4 +30,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Other
+/noGit
+
 # End of https://www.gitignore.io/api/osx
