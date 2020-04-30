@@ -1,3 +1,18 @@
+<?php
+
+include './partial/createDb.php';
+
+$request = "SELECT * FROM whisky";
+$response = $bdd->prepare($request);
+$response->execute();
+$whiskies = $response->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($whiskies);
+
+
+
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -25,9 +40,25 @@
             <div class="container">
                 <div class="row">
 
-                </div>
-            </div>
-        </div>
+                    <?php foreach ($whiskies as $whisky) : ?>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-body">
+                                    <h3><?= $whisky['name'] ?></h3>
+                                    <ul>
+                                        <li>Catégorie : <?= $whisky['category'] ?></li>
+                                        <li>Distillerie : <?= $whisky['distillery'] ?></li>
+                                        <li>Âge : <?= $whisky['stated_age'] ?></li>
+                                        <li>Mise en bouteille en :<?= $whisky['bottled'] ?></li>
+                                        <li>Alcool : <?= $whisky['strength'] ?></li>
+                                        <li>Arôme : <?= $whisky['flavor'] ?></li>
+                                        <li>Description : <?= $whisky['description'] ?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+
     </main>
     <footer>
         <?php include './partial/footer.php' ?>

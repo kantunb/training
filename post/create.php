@@ -26,7 +26,7 @@ $response = $bdd->prepare($request);
 $response->execute();
 $whisky = $response->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($whisky);
+// var_dump($whisky);
 
 header('Location: index.php');
 ?>
