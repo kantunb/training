@@ -2,12 +2,12 @@
 
 include './partial/createDb.php';
 
-$request = "SELECT * FROM whisky";
+$request = "SELECT * FROM whiskies";
 $response = $bdd->prepare($request);
 $response->execute();
 $whiskies = $response->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($whiskies);
+//var_dump($whiskies);
 
 
 
@@ -17,13 +17,7 @@ var_dump($whiskies);
 <html lang="fr">
 
 <head>
-    <title>Whisky Bar</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <?php include './partial/head.php' ?>
 </head>
 
 <body>

@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="row">
 
-                    <form class="form-group" action="./post/create.php" method="POST">
+                    <form class="form-group" enctype="multipart/form-data" action="./post/create.php" method="POST">
                         <fieldset class="p-3">
 
                             <legend>Ajouter un whisky</legend>
@@ -41,7 +41,7 @@
                                 <select name="category" id="" class="ml-3 aria-describedby=" category" required>
                                     <option value="">select</option>
                                     <option value="blend" selected>Blended Malt</option>
-                                    <option value="single_malt">Single Malt</option>
+                                    <option value="single malt">Single Malt</option>
                                     <option value="bourbon">Bourbon</option>
                                     <option value="rye">Rye</option>
                                     <option value="tennessee">Tennessee</option>
@@ -55,13 +55,13 @@
 
                             <div class="form-group">
                                 <label for="bottled">Date de mise en bouteille</label>
-                                <input type="number" class="form-control" name="bottled" id="" min="1800" max="2100" aria-describedby="Date de mise en bouteille">
+                                <input type="number" class="form-control" name="bottled" id="" min="1800" max="2100" aria-describedby="Date de mise en bouteille" value="1800" required>
                                 <small id="date_bouteille" class="form-text text-muted">Ex : 2010</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="stated_age">Âge</label>
-                                <input type="number" class="form-control" name="stated_age" id="" min="0" max="200" aria-describedby="Âge">
+                                <input type="number" class="form-control" name="stated_age" id="" min="0" max="200" aria-describedby="Âge" value="0" required>
                                 <small id="age_bouteille" class="form-text text-muted">Ex : 15</small>
                             </div>
 
@@ -75,19 +75,19 @@
                                 <label for="flavor">Arômes</label>
                                 <ul class="form-check">
                                     <li>
-                                        <input type="checkbox" class="form-check-input" name="flavor" id="yellow_fruit" value="yellow_fruit" aria-describedby="Arômes" value="test_aromes">
+                                        <input type="checkbox" class="form-check-input" name="flavor[]" id="yellow_fruit" value="yellow_fruit" aria-describedby="Arômes" value="test_aromes">
                                         <label class="form-check-label" for="yellow_fruit">Fruit jaune</label>
                                     </li>
                                     <li>
-                                        <input type="checkbox" class="form-check-input" name="flavor" id="smoke" value="smoke" aria-describedby="Arômes" value="test_aromes">
+                                        <input type="checkbox" class="form-check-input" name="flavor[]" id="smoke" value="smoke" aria-describedby="Arômes" value="test_aromes">
                                         <label class="form-check-label" for="smoke">Fumé</label>
                                     </li>
                                     <li>
-                                        <input type="checkbox" class="form-check-input" name="flavor" id="peat" value="peat" aria-describedby="Arômes" value="test_aromes">
+                                        <input type="checkbox" class="form-check-input" name="flavor[]" id="peat" value="peat" aria-describedby="Arômes" value="test_aromes">
                                         <label class="form-check-label" for="peat">Tourbe</label>
                                     </li>
                                     <li>
-                                        <input type="checkbox" class="form-check-input" name="flavor" id="cereal" value="cereal" aria-describedby="Arômes" value="test_aromes">
+                                        <input type="checkbox" class="form-check-input" name="flavor[]" id="cereal" value="cereal" aria-describedby="Arômes" value="test_aromes">
                                         <label class="form-check-label" for="cereal">Céréales</label>
                                     </li>
                                 </ul>
@@ -116,10 +116,13 @@
                                 </select>
                             </div>
 
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
+
                             <div class="form-group">
                                 <label for="image">Photo</label>
-                                <input type="file" name="image" id="" class="ml-3 aria-describedby=" Photo">
+                                <input type="file" class="form-control-file" name="image" id="" class="ml-3" aria-describedby="Photo">
                             </div>
+
                             <div class="form-group">
                                 <input class="btn btn-primary mt-4" type="submit" value="Ajouter un whisky">
                             </div>
