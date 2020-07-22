@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'SymfoGency, the best one' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Bienvenu sur la homepage</h1>
+        <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi magni commodi, perferendis possimus harum unde sed velit error tenetur. Sed quidem porro optio non molestiae inventore dolor reprehenderit repudiandae fuga!</P>
+    </div>
+
+    <div class="container">
+        <h2>Les derniers biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary h4"> {{ property.formattedPrice }} €</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
