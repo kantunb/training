@@ -3,8 +3,6 @@
 class Openweather
 {
 
-    private $apiKey; // = '376eb14167df15ca68d9fb0aa51154ae';
-
     public function __construct(string $apiKey){
         $this->apiKey = $apiKey;
     }
