@@ -39,7 +39,7 @@ function continueOrExit() : void
  */
 function insultCensorship() : void
 {
-    $insultes = ['con', 'merde', 'connard', 'salope', 'salop', 'batard'];
+    $insultes = ['con', 'merde', 'connard', 'salope', 'salop', 'batard', 'tg', 'pute'];
     $sentence = (string) strtolower(readline("Saisissez une phrase: "));
     if (!empty($sentence)) {
         $censoredSentence = $sentence;
